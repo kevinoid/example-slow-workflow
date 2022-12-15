@@ -1,0 +1,14 @@
+name: CI
+on:   # yamllint disable-line rule:truthy
+  pull_request: {}
+  push: {}
+  schedule:
+  - cron: '0 0,6,12,18 * * *'
+  workflow_dispatch: {}
+jobs:
+  wait:
+    name: A slow job
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sleep 6 hours
+      run: sleep 21600
